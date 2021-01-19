@@ -205,20 +205,20 @@ func validateUsers(id int, loggedIn bool) {
 	// 全体の確認
 	flg = flg30 && flgDOM && flgTotal && flgTime
 	if flg == false {
-		log.Print("Invalid Content or DOM at GET /users/:id")
+		msg := "Invalid Content or DOM at GET /users/:id"
 		if flg30 == false {
-			log.Print("購入履歴の数が正しくありません")
+			msg = msg + "\n購入履歴の数が正しくありません"
 		}
 		if flgDOM == false {
-			log.Print("UserページのDOMが正しくありません")
+			msg = msg + "\nUserページのDOMが正しくありません"
 		}
 		if flgTotal == false {
-			log.Print("購入金額の合計が正しくありません")
+			msg = msg + "\n購入金額の合計が正しくありません"
 		}
 		if flgTime == false {
-			log.Print("最近の購入履歴が正しくありません")
+			msg = msg + "\n最近の購入履歴が正しくありません"
 		}
-		os.Exit(1)
+		PrintFatal(msg)
 	}
 }
 
