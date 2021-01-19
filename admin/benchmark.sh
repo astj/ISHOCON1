@@ -19,4 +19,4 @@ set -o allexport
 source $DIR/.env
 set +o allexport
 
-$DIR/benchmark "$@" | mackerel-plugin-json -stdin -prefix $MACKEREL_SERVICE_METRIC_PREFIX | sed "s/score/score-$TEAMNAME/" mkr throw -s $MACKEREL_SERVICE
+$DIR/bin/benchmark "$@" | mackerel-plugin-json -stdin -prefix $MACKEREL_SERVICE_METRIC_PREFIX | sed "s/score/score-$TEAMNAME/" mkr throw -s $MACKEREL_SERVICE
