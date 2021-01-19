@@ -15,13 +15,13 @@ type result struct {
 // PrintResult prints score to stdout
 func PrintResult() {
 	b, _ := json.Marshal(result{Score: totalScore})
-	fmt.Println(b)
+	fmt.Println(string(b))
 }
 
 // PrintFatal は JSON を出しつつエラーログを出してかつ終了もします
 func PrintFatal(message string) {
 	b, _ := json.Marshal(result{Score: 0, Message: message})
 	log.Println(message)
-	fmt.Println(b)
+	fmt.Println(string(b))
 	os.Exit(1)
 }
