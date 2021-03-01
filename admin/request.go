@@ -95,5 +95,6 @@ func httpRequest(method string, path string, params url.Values, cookies []*http.
 func showScore() {
 	log.Print("Benchmark Finish!")
 	log.Print("Score: " + strconv.Itoa(totalScore))
+	PrintResult()
 	log.Print("Waiting for Stopping All Benchmarkers ...")
 }
